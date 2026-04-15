@@ -114,19 +114,19 @@ https://www.re-innovation.co.uk/blog/2020/ttgo-e-paper-display/
 https://www.re-innovation.co.uk/docs/creating-a-weather-display/
 
 
-##Updates:
+## Updates:
 
-###Problems Encountered:
+### Problems Encountered:
 
 In these next sections I'm highlighting the code changes required to get this project going from the previous code that I had written. This is for information only, as it has been a while since I have developed any code the E-Paper screen.
 
-###Problem: Library Update:
+### Problem: Library Update:
 
 The libraries for the E-Paper unit have been updated and my code (from 2024) no longer compiles correctly. I decided the make the changes required to go from using GxEPD to using GxEPD2. LilyGo (who manufacture the ESP32 E-Ink board) have some updated example code to use which I needed as the starting point for updating: https://github.com/Xinyuan-LilyGO/LilyGo-T5-Epaper-Series/tree/master
 
 The changes were not too bad and using the example code for LilyGo I was able to update the code so that the screen would display some information.
 
-###Problem: Touch Wake Up:
+### Problem: Touch Wake Up:
 
 The next issue was that the espressif libraries for setting up a touch pad had also changed. So I needed to change the code for going to sleep. Instead of:
 
@@ -146,11 +146,10 @@ But the routine for returning the GPIO pin that has been triggered with the touc
 
 This works fine, but always returns '512', rather than the 0-9 which should enumerate to the different GPIO pins. This is still not fixed, if anyone has any solutions?
 
-###Problem: Curious Electric logo is mirrored
+### Problem: Curious Electric logo is mirrored
 
 Previously I drew a small black and white Curious Electric logo while the unit powered up. I was using the GxEPD library, but I have now updated to the GxEPD2 library. The original logo was produced as a mirror image so it would display via GxEPD. This must have been reversed in the new GxEDP2. I recreated the logo data using Image2LCD (see my original blog post here), but did not mirror the image (left to right). I then included that data within my icons page within the code. This all worked!
 
-###Problem: Alignment of Text
+### Problem: Alignment of Text
 
 There must have been a change in the origin setpoint in GxEPD2 as all my text was mis-aligned. I think the change was that rather than using the top left of the text as the origin, the code now uses the bottom left of the text as the origin. So I needed to push down all the text by 10 pixels.
-
