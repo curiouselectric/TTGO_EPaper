@@ -17,9 +17,13 @@ These have been designed in Inkscape and laser cut with Lightburn software.
 
 ## Examples
 
-Three main examples have been included in this repository:
+Some examples have been included in this repository:
+
 * Connect to Open Weather Map and display weather data
-* Display a random quotation 
+* Display a random quotation
+* Display the UK grid frequency
+
+The examples are all bundled into one code example. This saves repeating any changes for the E-Paper display and the Wifi implementation. Hopefully from the examples it can be seen different approaches to equiring and responding to data. These are for example only.
 
 ### Sort out Arduino IDE to upload data to the ESP32:
 
@@ -68,7 +72,6 @@ You need to create an account with Open Weather Map (https://openweathermap.org/
 
 DEPRECIATED: Details for connection are here: https://openweathermap.org/api/one-call-api
 
-
 You need to register and get an API key. With their free level you are limited to a certain number of API calls (1,000,00 a month or 60 per minute!), but for this application the free level is fine.
 
 You can add your parameters when configuring the WiFi via the config portal. They are stored in EEPROM, but can be updated by changing in the WiFi config portal.
@@ -90,12 +93,16 @@ MY_TIMEZONE    "GMT0BST,M3.5.0/01,M10.5.0/02"  // Choose your time zone from: ht
 
 ### Quotation Unit example
 
-This example does not need any user info. Just upload this example code. Then switch on your e-ink display and connect to the WiFi access point, as per the on-screen instructions.
+This example does not need any user info. Just upload this code varion. Then switch on your e-ink display and connect to the WiFi access point, as per the on-screen instructions.
 When you enter your wifi password and SSID then it will restart and download a random quote. A new quote will appear each time the touch pad is pressed.
 
 This code uses the following website, https://forismatic.com/en/, which returns a quote and the author as a line of text.
 
 The final URL used to send via an http GET request is: http://api.forismatic.com/api/1.0/?method=getQuote&key=&format=text&lang=en
+
+### Grid Frequency example
+
+
 
 ## More information
 
