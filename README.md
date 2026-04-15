@@ -19,7 +19,6 @@ These have been designed in Inkscape and laser cut with Lightburn software.
 
 Three main examples have been included in this repository:
 * Connect to Open Weather Map and display weather data
-* Connect to an Adafruit IO feed and display the data
 * Display a random quotation 
 
 ### Sort out Arduino IDE to upload data to the ESP32:
@@ -35,6 +34,8 @@ Please follow the instructions here:
 
 https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
 
+When uploading to the board use the "ESP32 Dev Module" option as the type of board.
+
 ### Include the correct libraries for the examples to compile:
 
 For these examples you will need to include the following libraries:
@@ -49,35 +50,8 @@ These can be installed via Arduino IDE Library Manager:
 
 Also install:
 
-* GxEPD by Lewisxhe at Lilygo   Download from here: https://github.com/lewisxhe/GxEPD
-Then install using library -> add ZIP library
-
-You MUST then copy the "GxGDE0213B72B_CE" & "GxDEPG0213BN_CE" & "GxGDEM0213B74_CE" folders from the examples in this repository.
-
-Copy them BOTH to the "your sketchbook\yourlibraries\GxEPD\src" folder in your arduino libraries (on my computer this is "D:\sketchbook\libraries\GxEPD\src\"). 
-
-You will see a big list of the various boards available.
-
-Please delete the original "GxGDE0213B72B" & "GxDEPG0213BN" & "GxGDEM0213B74" as they confuse the compiler.
-
-Annoyingly there are two different EPaper displays used by Lilygo.
-You might need to try both and see which looks best.
-
-Change this within the "board_def.h" page in the example arduino code. Scroll down the "board_def.h" file until you see the following code:
-
-```
-#elif (TTGO_T5_2_0) || (TTGO_T5_2_3)
-// Version 1:
-//#include <GxGDE0213B72B_CE/GxGDE0213B72B.h>    // 2.13" b/w     GxGDE0213B72 升级版本 默认LilyGO的出厂屏幕都是这种
-//Version 2:
-//#include <GxDEPG0213BN_CE/GxDEPG0213BN.h>      // 2.13" b/w  form Curious Electric
-//Version 3:
-#include <GxGDEM0213B74_CE/GxGDEM0213B74.h>      // 2.13" b/w  from Curious Electric
-```
-
-Then comment out either version 1 or 2 or 3.
-
-(This will be a process of trial and error - the wrong driver will give you a 'washed out' display and look faded)
+* GxEPD2                          Download from here: [https://github.com/ZinggJM/GxEPD2](https://github.com/ZinggJM/GxEPD2)
+Then install using library -> add ZIP library OR search for GxEPD2 repository in the library manager and install
 
 ### Setting up WiFi in all examples
 
